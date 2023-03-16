@@ -4,6 +4,7 @@ import Landing from './pages/Landing/Landing';
 import CreateAccount from './pages/CreateAccount/CreateAccount';
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
+import Feed from './pages/Feed/Feed';
 function App() {
   return (
     <div className="App">
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Landing />}></Route>
            <Route path='/signup' element={<CreateAccount/>}></Route>
+           <Route path='/feed' element={<Feed/>}></Route>
         </Routes>
       </BrowserRouter>
 
