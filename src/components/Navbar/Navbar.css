@@ -1,0 +1,45 @@
+.navWritings ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: white;
+    width: auto;
+    position: relative;
+
+}
+.navWritings li{
+    cursor: pointer;
+    flex-wrap: nowrap;
+    float: right;
+    color: black;
+    font-size: 1 rem;
+    margin-left: 5%;
+    padding: 1rem;
+}
+.navContent{
+    background-color: white;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    height: auto;
+    z-index: 1000;
+    overflow-x: hidden;
+    opacity: 0.7;
+}
+.navImage{
+    display: block;
+    float: left;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.navImage img{
+    height: 75%;
+    width: 75%;
+}
+.navWritings{
+    display: block;
+    float: right;
+    margin-right: 2%;
+}
