@@ -5,6 +5,7 @@ import CreateAccount from './pages/CreateAccount/CreateAccount';
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Feed from './pages/Feed/Feed';
+import Login from './pages/Login/Login';
 function App() {
   return (
     <div className="App">
@@ -14,6 +15,7 @@ function App() {
           <Route path='/' element={<Landing />}></Route>
            <Route path='/signup' element={<CreateAccount/>}></Route>
            <Route path='/feed' element={<Feed/>}></Route>
+          <Route path='/login' element={<Login/>}></Route>
         </Routes>
       </BrowserRouter>
 

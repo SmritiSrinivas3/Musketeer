@@ -43,6 +43,7 @@ function CreateAccount() {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                console.log(user)
                 createUser();
                 navigate('/feed');
 
@@ -50,7 +51,13 @@ function CreateAccount() {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorMessage)
+                if (errorCode === 'auth/email-already-in-use') {
+                    alert('An account with this email address already exists. Please sign in instead.');
+                    navigate('/login')
+                  }
+                  else{
+                    alert(errorMessage)
+                  }
             });
         
 
