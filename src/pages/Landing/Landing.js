@@ -7,6 +7,7 @@ import './Landing.css'
 
 
 
+
 function Landing() {
   const email = "smritisrinivasneelamana@gmail.com"
 
