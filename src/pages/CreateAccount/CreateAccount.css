@@ -15,7 +15,7 @@
     margin: 1rem;
 }
 
-.inputField{
+.inputFieldCrt{
     background-color: black;
     opacity: 0.45;
     border: 1px solid rgb(172, 171, 171);
@@ -33,7 +33,7 @@
     padding: 1.5rem;
 }
 
-.subButton input{
+.subButtonCrt input{
     background-color: #FF597B;
     width: 12%;
     padding: 1rem;
@@ -47,4 +47,3 @@
     margin-top: 1.2%;
     cursor: pointer;
 }
-

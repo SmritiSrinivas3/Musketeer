@@ -18,8 +18,8 @@ function Landing() {
         </div>
       <img className='landingImg' src={homeImg}></img>
       <div className="buttonGroups">
-        <button>LOGIN</button>
-        <button onClick={() => window.location.assign('./signup')}>SIGN UP</button>
+        <button onClick={() => window.location.assign('/login')}>LOGIN</button>
+        <button onClick={() => window.location.assign('/signup')}>SIGN UP</button>
       </div>
       <div className="redBox">
         JOIN THE CONVERSATION
