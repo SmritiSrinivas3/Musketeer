@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app from '../../utils/firebase'
 import { useNavigate } from 'react-router-dom';
+import { db } from '../../utils/firebase';
+import { collection, addDoc } from "firebase/firestore"; 
+
 
 
 
@@ -10,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 function CreateAccount() {
+    
     const navigate = useNavigate();
     const [firstName, setFirstName] = useState(null)
     const [lastName, setLastName] = useState(null)
@@ -30,12 +34,16 @@ function CreateAccount() {
             setPassword(value);
         }
     }
+    const createUser = async() =>{
+        await addDoc(collection(db, "userData"), {email: email, firstName: firstName, lastName: lastName, password:password})
+    }
     const handleSubmit = (e) => {
         e.preventDefault()
         const auth = getAuth(app);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                createUser();
                 navigate('/feed');
 
             })
@@ -43,11 +51,10 @@ function CreateAccount() {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorMessage)
-                // ..
             });
+        
 
-
-        //  console.log('submit button clicked')
+  
     }
 
     return (

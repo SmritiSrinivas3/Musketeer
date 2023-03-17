@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
     apiKey: "AIzaSyDVoK_PSv18Wmx3SRKpLJzctvEfMWBDkSM",
     authDomain: "musketeer-587bc.firebaseapp.com",
@@ -11,5 +12,5 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
+export const db = getFirestore(app);
 export default app
-
