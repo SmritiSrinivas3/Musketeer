@@ -10,17 +10,17 @@ const SearchBar = () => {
 
   useEffect(() => {
     if (searchQuery) {
-      const q = query(collection(db, "userData"), where("firstName", "array-contains", searchQuery));
+      const q = query(collection(db, "userData"), where("firstName", "==", searchQuery));
       getDocs(q).then((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => doc.data());
         setSearchResults(data);
-        console.log(data)
+        
       });
     } else {
       setSearchResults([]);
     }
   }, [searchQuery]);
-
+console.log(searchResults)
   const handleInputChange = (e) => {
     setSearchQuery(e.target.value);
   };
@@ -29,11 +29,18 @@ const SearchBar = () => {
   return (
     <div>
     <input type="text" value={searchQuery} id='searchInputField' onChange={handleInputChange} />
-    <ul>
+   {searchQuery !== "" && searchResults.length>0 ? (
+    <ul className='searchResultContainer'>
       {searchResults.map((result) => (
-        <li key={result.id}>{result.firstName} {result.lastName}</li>
+        <li key={result.id} className='individualResult'>
+          <img className='searchResultPhoto'src={result.profilePhoto}></img>
+          <h3>{result.firstName} {result.lastName}</h3>
+          <button>VIEW PROFILE</button>
+          </li>
       ))}
     </ul>
+   ): searchQuery !== "" && searchResults.length == 0 ? <p> No such user exist</p>
+   : null}
   </div>
   );
 };
