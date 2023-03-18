@@ -81,7 +81,7 @@ function CreateAccount() {
                 <h4> Email: </h4><input type="email" id='email' required={true} value={email} onChange={(e) => handleInputChange(e)} className='inputFieldCrt'></input>
                 <h4> Password: </h4><input type="password" required={true} id='password' value={password} onChange={(e) => handleInputChange(e)} className='inputFieldCrt'></input>
                <br/> <br/>
-               Upload Profile Photo: <input type="file"  id='profilePhoto' onChange={(e) => handleInputChange(e)} accept=".jpg,.jpeg,.png" />
+               Upload Profile Photo: <input type="file" required={true} id='profilePhoto' onChange={(e) => handleInputChange(e)} accept=".jpg,.jpeg,.png" />
                 <div className="subButtonCrt">
                     <input type='submit'></input>
                 </div>

@@ -4,13 +4,21 @@ import fist from './FIST.png'
 import friendsImg from './friends.png'
 import manWithCam from './manWithCam.png'
 import './Landing.css'
-
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from 'react-router-dom'
 
 
 
 function Landing() {
   const email = "smritisrinivasneelamana@gmail.com"
-
+  const auth = getAuth();
+  const navigate = useNavigate();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+     navigate('/feed')
+    } 
+  });
+  
   return (
     <div className='landingContainer'>
         <div className="heroText">

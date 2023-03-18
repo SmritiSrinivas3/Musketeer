@@ -1,6 +1,31 @@
 .sideProfileContainer{
-    height: 90vh;
-    width: auto;
-    border: 11px solid green;
-    background-color: white;
+    height: 40vh;
+    width: 15vw;
+    background-color: #eeee;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 1px 2px 4px black;
+    position: relative;
+    left: 80%;
+}
+
+.sideProfileContainer img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.sideProfileContainer h6{
+     color: #FF8E9E;
+}
+.sideProfileButtons{
+cursor: pointer;
+margin-top: 8%;
+background-color: #F9B5D0 ;
+box-shadow: 1px 2px 5px black;
+width: 90%;
+height: auto;
+padding: 0.2rem;
+color: black;
+border-radius: 0.75rem;
 }

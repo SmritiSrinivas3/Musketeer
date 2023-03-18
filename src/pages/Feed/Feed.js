@@ -12,7 +12,6 @@ function Feed() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthStatus(user);
-        console.log(user)
       } else {
         navigate("/");
       }
