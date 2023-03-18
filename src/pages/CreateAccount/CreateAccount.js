@@ -4,21 +4,21 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app from '../../utils/firebase'
 import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../../utils/firebase';
-import { collection, addDoc } from "firebase/firestore"; 
-
-
+import {  collection, addDoc } from "firebase/firestore"; 
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 
 
 
 
 function CreateAccount() {
-    
+    const storage = getStorage(app);
     const navigate = useNavigate();
     const [firstName, setFirstName] = useState(null)
     const [lastName, setLastName] = useState(null)
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
+    const [profilePhoto, setProfilePhoto] = useState(null)
     const handleInputChange = (e) => {
         const { id, value } = e.target;
         if (id === "firstName") {
@@ -33,17 +33,24 @@ function CreateAccount() {
         if (id === "password") {
             setPassword(value);
         }
+        if(id === 'profilePhoto'){
+            setProfilePhoto(e.target.files[0]);
+        }
     }
+    
     const createUser = async() =>{
-        await addDoc(collection(db, "userData"), {email: email, firstName: firstName, lastName: lastName, password:password})
+        const storageRef = ref(storage, profilePhoto.name)
+        const snapshot = await uploadBytes(storageRef, profilePhoto);
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        await addDoc(collection(db, "userData"), {email: email, firstName: firstName, lastName: lastName, password:password, profilePhoto: downloadURL})
     }
     const handleSubmit = (e) => {
         e.preventDefault()
         const auth = getAuth(app);
+       
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user)
                 createUser();
                 navigate('/feed');
 
@@ -73,6 +80,8 @@ function CreateAccount() {
                 <h4> Last Name: </h4><input type="text" id='lastName' value={lastName} onChange={(e) => handleInputChange(e)} className='inputFieldCrt'></input>
                 <h4> Email: </h4><input type="email" id='email' required={true} value={email} onChange={(e) => handleInputChange(e)} className='inputFieldCrt'></input>
                 <h4> Password: </h4><input type="password" required={true} id='password' value={password} onChange={(e) => handleInputChange(e)} className='inputFieldCrt'></input>
+               <br/> <br/>
+               Upload Profile Photo: <input type="file"  id='profilePhoto' onChange={(e) => handleInputChange(e)} accept=".jpg,.jpeg,.png" />
                 <div className="subButtonCrt">
                     <input type='submit'></input>
                 </div>

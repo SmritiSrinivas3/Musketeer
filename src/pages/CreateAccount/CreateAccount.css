@@ -30,7 +30,7 @@
 .createAccForm{
     position: relative;
     left: 30%;
-    padding: 1.5rem;
+    padding: 0.5rem;
 }
 
 .subButtonCrt input{
@@ -44,6 +44,6 @@
     box-shadow: 0px 2px 3px black;
     position: relative;
     left: 8%;
-    margin-top: 1.2%;
+    margin-top: 0.85%;
     cursor: pointer;
 }
