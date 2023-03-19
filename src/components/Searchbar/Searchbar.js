@@ -28,7 +28,7 @@ console.log(searchResults)
 
   return (
     <div>
-    <input type="text" value={searchQuery} id='searchInputField' onChange={handleInputChange} />
+    <input type="text" value={searchQuery} id='searchInputField' onChange={handleInputChange} placeholder='Search (case sensitive)' />
    {searchQuery !== "" && searchResults.length>0 ? (
     <ul className='searchResultContainer'>
       {searchResults.map((result) => (
