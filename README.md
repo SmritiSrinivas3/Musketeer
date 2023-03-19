@@ -1,6 +1,6 @@
 # Musketeer : A Social Media website to connect with your friends
 
-##Tech Stacks used:
+## Tech Stacks used:
 * ReactJS for the Frontend
 * Firebase for the Backend
 * Figma for designing the UI
