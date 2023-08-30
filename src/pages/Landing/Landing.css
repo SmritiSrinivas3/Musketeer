@@ -7,17 +7,38 @@
     position: relative;
    margin-top: 5%;
    margin-left: 1%;
-   
+   animation: color-animation 12s linear infinite;
 }
-.landingImg{
+
+@keyframes color-animation {
+    0%    {color: #F9B5D0;}
+    32%   {color: rgb(209, 192, 144);}
+    33%   {color: rgb(202, 202, 211);}
+    65%   {color: rgb(178, 178, 209);}
+    66%   {color: rgb(207, 228, 207);}
+    99%   {color:  rgb(189, 189, 216);}
+    100%  {color: #F9B5D0;}
+}
+
+.landingImg {
     height: 55%;
     width: 35%;
-    position: block;
-    float: right;
     position: absolute;
     top: 15%;
-    left: 56%;
+    right: -35%; 
+    animation: slideInFromRight 1s ease-in-out forwards; 
 }
+
+@keyframes slideInFromRight {
+    0% {
+        right: -35%; 
+    }
+    100% {
+        right: 0; 
+    }
+}
+
+
 
 .buttonGroups{
 margin-top: 24px;
@@ -41,6 +62,10 @@ left: 23%;
     margin-top: 1.5rem;
 }
 
+button:hover{
+    box-shadow: 0px 0px 7px grey;
+}
+
 .redBox{
     background-color: #FF8E9E;
     color: white;
@@ -62,11 +87,13 @@ left: 23%;
    size: 1rem;
    width: 21%;
    height: auto;
+   
 }
 .por{
     padding: 2rem;
     display: flex;
     justify-content: space-around;
+
 }
 .por h2{
     margin-top: 12%;
